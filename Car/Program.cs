@@ -65,6 +65,17 @@ namespace Car
                 get { return fueltank; }
             }
 
+            public void Drive()
+            {
+                odometer += 100;
+                fueltank -= 5;
+            }
+
+            public void ShowCarDetials()
+            {
+                Console.WriteLine($"Model: {model};\n Name: {name};\n Color: {color};\n RegistrationNumber: {registrationnumber};\n Fuel: {fueltank};\n Odo: {odometer}; ");
+            }
+
 
         }
         static void Main(string[] args)
@@ -77,8 +88,14 @@ namespace Car
             Console.WriteLine(newCar.Color);
             Console.WriteLine(newCar.Odometer);
             Console.WriteLine(newCar.FuelTank);
-            
 
+            while(newCar.FuelTank != 0)
+            {
+                newCar.Drive();
+            }
+            newCar.ShowCarDetials();
+
+            Console.WriteLine("the ride is over.");
         }
     }
 }
